@@ -1,0 +1,22 @@
+import {FiSun} from 'react-icons/fi'
+import {FiMoon} from 'react-icons/fi'
+import {FaGithubSquare} from 'react-icons/fa'
+import {FaLinkedin} from 'react-icons/fa'
+import {SiSkypeforbusiness} from 'react-icons/si'
+import {FiPhone} from 'react-icons/fi'
+import {FiMail} from 'react-icons/fi'
+import {FiCode} from 'react-icons/fi'
+import {BiPalette} from 'react-icons/bi'
+import {VscProject} from 'react-icons/vsc'
+import {HiOutlineMenuAlt3} from 'react-icons/hi'
+import {BiMenuAltRight} from 'react-icons/bi'
+import {RiMenu3Line} from 'react-icons/ri'
+import {RiCloseLine} from 'react-icons/ri'
+import {CgMenuRight} from 'react-icons/cg'
+import {CgMenuRightAlt} from 'react-icons/cg'
+import {CgClose} from 'react-icons/cg'
+import {BiLinkExternal} from 'react-icons/bi'
+import {VscGithub} from 'react-icons/vsc'
+
+
+
