@@ -146,13 +146,13 @@ const Home = ({ darkMode, home }) => {
             >
               <img
                 src={aboutImg}
-                alt="more less me, I wear black mostly though"
+                alt="it's me more less, I wear black mostly though"
               />
             </motion.div>
           </div>
         </SectionB>
       </div>
-      <Section darkMode={darkMode} title="my projects">
+      <Section darkMode={darkMode} title="featured projects">
         {" "}
         <FeaturedProjects darkMode={darkMode} />{" "}
       </Section>

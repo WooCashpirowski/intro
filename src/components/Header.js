@@ -18,10 +18,11 @@ const HeaderStyled = styled.div`
     border: none;
     background: none;
     position: absolute;
-    right: 1.25rem;
+    right: 1rem;
     top: 0.75rem;
     cursor: pointer;
     z-index: 4;
+
     .icon {
       transition: var(--main-transition);
       color: var(--color-primary);
@@ -81,7 +82,16 @@ const HeaderStyled = styled.div`
         width: 100%;
       }
     }
-    @media (max-width: 768px) {
+  }
+  @media (max-width: 768px) {
+    .dm-toggle-btn {
+      position: fixed;
+      top: 1.6rem;
+      @media (max-width: 560px) {
+        position: absolute;
+      }
+    }
+    header {
       padding: 0.5rem;
 
       ul {

@@ -16,6 +16,8 @@ const ScrollToTop = styled.div`
   }
   svg {
     color: var(--color-secondary);
+    border: 1.5px solid var(--color-secondary);
+    border-radius: 5px;
   }
   @media (max-width: 768px) {
     right: 4.5rem;

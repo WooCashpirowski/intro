@@ -4,6 +4,71 @@ import { FaGithubSquare, FaLinkedin } from "react-icons/fa";
 import BgImage from "./bgImage";
 import { motion } from "framer-motion";
 
+const containerVariants = {
+  initial: {
+    opacity: 0,
+    x: 500,
+  },
+  animate: {
+    opacity: 1,
+    x: 0,
+    transition: {
+      staggerChildren: 0.8,
+      delay: 0.5,
+    },
+  },
+};
+const itemVariants = {
+  initial: {
+    opacity: 0,
+    x: 400,
+  },
+  animate: {
+    opacity: 1,
+    x: 0,
+  },
+};
+
+const Main = ({ darkMode }) => {
+  return (
+    <>
+      <MainStyled className={darkMode ? "dark-mode" : ""}>
+        <motion.div
+          className="heading-main"
+          variants={containerVariants}
+          initial="initial"
+          animate="animate"
+          exit="initial"
+        >
+          <motion.h1 variants={itemVariants}>
+            Hi, I'm <b className="name">ŁUKASZ</b>
+          </motion.h1>
+
+          <motion.div variants={itemVariants} className="links">
+            <a
+              href="https://www.linkedin.com/in/lukasz-piorowski/"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <FaLinkedin className="icon" />
+            </a>
+            <a
+              href="https://github.com/WooCashpirowski"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <FaGithubSquare className="icon" />
+            </a>
+          </motion.div>
+        </motion.div>
+        <div className="overlay"></div>
+      </MainStyled>
+    </>
+  );
+};
+
+export default Main;
+
 const MainStyled = styled.main`
   min-height: 95vh;
   width: 100%;
@@ -40,78 +105,33 @@ const MainStyled = styled.main`
   }
   .heading-main {
     z-index: 1;
-    margin-left: 9rem;
+    margin-left: 10%;
     padding: 2rem;
     margin-top: 5rem;
     height: 100%;
     h1 {
-      font-size: 4rem;
+      font-size: 6rem;
+      text-shadow: 1px 1px 5px rgba(0, 0, 0, 0.2);
       .name {
         color: var(--color-primary);
       }
     }
-    h2 {
-      font-size: 2.5rem;
-      margin-top: 2rem;
-      &.who {
-        color: var(--color-primary);
-        margin-left: 2rem;
-        font-weight: 700;
-      }
-    }
     .links {
-      margin-top: 2rem;
+      margin-top: 1.4rem;
       display: flex;
-      flex-wrap: wrap;
-      align-items: center;
-      .soc-links {
+      padding-left: 0.2rem;
+      a {
         display: flex;
-        padding: 0 0 1rem;
-        a {
-          display: flex;
-          justify-content: center;
-          align-items: center;
-          .icon {
-            font-size: 3rem;
-            margin-right: 1rem;
-            transition: var(--main-transition);
-            &:hover {
-              transform: scale(1.05) rotate(5deg);
-            }
+        justify-content: center;
+        align-items: center;
+        .icon {
+          font-size: 4rem;
+          margin-right: 1rem;
+          transition: var(--main-transition);
+          &:hover {
+            transform: scale(1.05) rotate(5deg);
           }
         }
-      }
-
-      .btn-primary {
-        transition: var(--main-transition);
-        margin-left: 3px;
-        margin-bottom: 1rem;
-        &:hover {
-          transform: scale(1.05) rotate(2deg);
-        }
-        @media (max-width: 359px) {
-          margin-top: 0.6rem;
-        }
-      }
-    }
-    @media (max-width: 556px) {
-      h1 {
-        font-size: 2.8rem;
-      }
-      h2 {
-        font-size: 1.7rem;
-        margin-top: 1rem;
-        &.who {
-          margin-left: 0;
-        }
-      }
-    }
-    @media (max-width: 320px) {
-      h1 {
-        font-size: 2rem;
-      }
-      h2 {
-        font-size: 1.2rem;
       }
     }
   }
@@ -119,89 +139,38 @@ const MainStyled = styled.main`
   @media (max-width: 768px) {
     height: 100vh;
     align-items: flex-start;
-    padding: 0 2rem;
-
+    padding: 0 1rem;
     &.dark-mode {
       .overlay {
         background: rgba(0, 0, 0, 0.8);
       }
     }
     .heading-main {
-      margin-left: 0;
-      height: 100%;
+      margin-left: 5%;
+      height: 80%;
       display: flex;
       flex-direction: column;
       align-items: flex-start;
       justify-content: center;
+      padding: 1rem;
+
+      @media (max-width: 556px) {
+        h1 {
+          font-size: 4rem;
+          @media (max-width: 350px) {
+            font-size: 3rem;
+          }
+        }
+        .links {
+          margin-top: 0.8rem;
+          padding-left: 0.1rem;
+          a {
+            .icon {
+              font-size: 3rem;
+            }
+          }
+        }
+      }
     }
   }
 `;
-
-const containerVariants = {
-  initial: {
-    opacity: 0,
-    x: 500,
-  },
-  animate: {
-    opacity: 1,
-    x: 0,
-    transition: {
-      staggerChildren: 0.3,
-    },
-  },
-};
-const itemVariants = {
-  initial: {
-    opacity: 0,
-    x: 200,
-  },
-  animate: {
-    opacity: 1,
-    x: 0,
-  },
-};
-
-const Main = ({ darkMode, home }) => {
-  return (
-    <>
-      <MainStyled className={darkMode ? "dark-mode" : ""}>
-        <motion.div
-          className="heading-main"
-          variants={containerVariants}
-          initial="initial"
-          animate="animate"
-          exit="initial"
-        >
-          <motion.h1 variants={itemVariants}>
-            Hi, I'm <b className="name">Łukasz</b>
-          </motion.h1>
-          <motion.h2 variants={itemVariants} className="who">
-            Welcome to my place
-          </motion.h2>
-          <motion.h2 variants={itemVariants}>Let me show you around</motion.h2>
-          <motion.div variants={itemVariants} className="links">
-            <div className="soc-links">
-              <a
-                href="https://www.linkedin.com/in/lukasz-piorowski/"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                <FaLinkedin className="icon" />
-              </a>
-              <a
-                href="https://github.com/WooCashpirowski"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                <FaGithubSquare className="icon" />
-              </a>
-            </div>
-          </motion.div>
-        </motion.div>
-        <div className="overlay"></div>
-      </MainStyled>
-    </>
-  );
-};
-
-export default Main;

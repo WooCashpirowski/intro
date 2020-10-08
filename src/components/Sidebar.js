@@ -12,7 +12,7 @@ const SideBarStyled = styled.nav`
     position: fixed;
     right: 0;
     top: 0;
-    width: 70px;
+    width: 60px;
     background: linear-gradient(
       180deg,
       rgba(0, 0, 0, 0.1) 0%,
