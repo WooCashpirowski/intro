@@ -23,7 +23,7 @@ const MainStyled = styled.main`
     height: 101%;
     background: linear-gradient(
       90deg,
-      rgba(251, 249, 255, 0.5) 20%,
+      rgba(251, 249, 255, 0.9) 20%,
       rgba(251, 249, 255, 0) 100%
     );
   }
@@ -47,14 +47,14 @@ const MainStyled = styled.main`
     h1 {
       font-size: 4rem;
       .name {
-        color: var(--color-secondary);
+        color: var(--color-primary);
       }
     }
     h2 {
       font-size: 2.5rem;
       margin-top: 2rem;
       &.who {
-        color: var(--color-secondary);
+        color: var(--color-primary);
         margin-left: 2rem;
         font-weight: 700;
       }
