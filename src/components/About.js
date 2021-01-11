@@ -74,11 +74,9 @@ const About = ({ darkMode, home }) => {
   useEffect(() => {
     const fetchInfo = () => {
       client
-        .getEntry({
-          content_type: "about",
-        })
+        .getEntries()
         .then((res) => {
-          setInfo(res.fields);
+          setInfo(res.items[1].fields);
         })
         .catch(console.error);
     };
@@ -123,7 +121,7 @@ const About = ({ darkMode, home }) => {
           exit="exit"
         >
           <img
-            src={info ? info.img.fields.file.url : aboutImg}
+            src={aboutImg}
             alt="it's me more less, I wear black mostly though"
           />
         </motion.div>
