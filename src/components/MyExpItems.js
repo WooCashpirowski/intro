@@ -96,7 +96,7 @@ const contentVariants = {
 };
 
 const ExpItems = ({ items, darkMode }) => {
-  const [activeContent, setActiveContent] = useState(5);
+  const [activeContent, setActiveContent] = useState(6);
   const setContent = function (e) {
     setActiveContent(e.target.dataset.id);
     return activeContent;
