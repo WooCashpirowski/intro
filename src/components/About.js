@@ -1,8 +1,8 @@
-import React, { useEffect, useState } from "react";
-import aboutImg from "../img/about-img.svg";
-import { motion } from "framer-motion";
-import SectionB from "./SectionB";
-import { client } from "../client";
+import React, { useEffect, useState } from 'react';
+import aboutImg from '../img/about-img.svg';
+import { motion } from 'framer-motion';
+import SectionB from './SectionB';
+import { client } from '../client';
 
 const imgVariants = {
   initial: {
@@ -65,8 +65,8 @@ const About = ({ darkMode, home }) => {
     function handleScroll() {
       setLastYPos(window.pageYOffset);
     }
-    window.addEventListener("scroll", handleScroll);
-    return () => window.removeEventListener("scroll", handleScroll);
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
   }, [lastYPos]);
 
   const [info, setInfo] = useState();
@@ -74,9 +74,9 @@ const About = ({ darkMode, home }) => {
   useEffect(() => {
     const fetchInfo = () => {
       client
-        .getEntries()
+        .getEntry('250JO8e3oGe9NaFxHnU2gx')
         .then((res) => {
-          setInfo(res.items[1].fields);
+          setInfo(res.fields);
         })
         .catch(console.error);
     };
@@ -90,12 +90,12 @@ const About = ({ darkMode, home }) => {
           className="info"
           variants={infoVariants}
           initial="initial"
-          animate={lastYPos > 900 ? "animate" : "exit"}
+          animate={lastYPos > 900 ? 'animate' : 'exit'}
         >
           {info && (
             <>
               <motion.p variants={itemVariants}>
-                {info.intro} <span className="name">{info && info.span}</span>{" "}
+                {info.intro} <span className="name">{info && info.span}</span>{' '}
                 {info.first}
               </motion.p>
               <motion.p variants={itemVariants}>{info.second}</motion.p>
@@ -106,7 +106,7 @@ const About = ({ darkMode, home }) => {
           <motion.div variants={btnVariants} className="exp-btn">
             <a
               href="/my-work#top"
-              className={darkMode ? "btn-primary dark" : "btn-primary"}
+              className={darkMode ? 'btn-primary dark' : 'btn-primary'}
               onClick={() => home(false)}
             >
               wiew my work
@@ -117,7 +117,7 @@ const About = ({ darkMode, home }) => {
           className="about-img"
           variants={imgVariants}
           initial="initial"
-          animate={lastYPos > 900 ? "animate" : "initial"}
+          animate={lastYPos > 900 ? 'animate' : 'initial'}
           exit="exit"
         >
           <img
