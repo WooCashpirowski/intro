@@ -1,12 +1,11 @@
-import React, { useState } from "react";
-import styled from "styled-components";
-import { motion } from "framer-motion";
+import React, { useState } from 'react'
+import styled from 'styled-components'
+import { motion } from 'framer-motion'
 
 const Wrapper = styled.div`
   display: flex;
   justify-content: space-around;
-  align-items: center;
-  min-height: 55vh;
+  min-height: 70vh;
   width: 80%;
   margin: 0 auto;
   .buttons {
@@ -16,14 +15,14 @@ const Wrapper = styled.div`
     align-items: flex-start;
     justify-content: space-around;
     margin-right: 1rem;
+    padding-right: 1rem;
     border-right: 1px solid var(--color-primary);
     button {
       border: 1px solid transparent;
       background: none;
       cursor: pointer;
-      border-radius: 5px;
       margin: 0.2rem;
-      padding: 0.5rem;
+      padding: 1rem 0.5rem;
       width: 130px;
       transition: var(--main-transition);
       font-size: 16px;
@@ -80,7 +79,7 @@ const Wrapper = styled.div`
       }
     }
   }
-`;
+`
 
 const contentVariants = {
   initial: { scale: 0, x: -100, y: -100 },
@@ -93,33 +92,33 @@ const contentVariants = {
       duration: 0.5,
     },
   },
-};
+}
 
 const ExpItems = ({ items, darkMode }) => {
-  const [activeContent, setActiveContent] = useState(6);
+  const [activeContent, setActiveContent] = useState(7)
   const setContent = function (e) {
-    setActiveContent(e.target.dataset.id);
-    return activeContent;
-  };
+    setActiveContent(e.target.dataset.id)
+    return activeContent
+  }
 
   return (
     <motion.div>
       <Wrapper>
         <div className="buttons">
           {items.map((item) => {
-            const { id, company } = item.fields;
+            const { id, company } = item.fields
             return (
               <button
                 className={
                   darkMode
                     ? parseInt(activeContent) === id
-                      ? "active"
+                      ? 'active'
                       : parseInt(activeContent) !== id
-                      ? "dark"
-                      : ""
+                      ? 'dark'
+                      : ''
                     : parseInt(activeContent) === id
-                    ? "active"
-                    : ""
+                    ? 'active'
+                    : ''
                 }
                 key={id}
                 data-id={id}
@@ -127,20 +126,13 @@ const ExpItems = ({ items, darkMode }) => {
               >
                 {company}
               </button>
-            );
+            )
           })}
         </div>
         <div className="content">
           {items.map((item) => {
-            const {
-              id,
-              dates,
-              position,
-              desc1,
-              desc2,
-              desc3,
-              desc4,
-            } = item.fields;
+            const { id, dates, position, desc1, desc2, desc3, desc4 } =
+              item.fields
 
             return (
               parseInt(activeContent) === id && (
@@ -149,7 +141,7 @@ const ExpItems = ({ items, darkMode }) => {
                   initial="initial"
                   animate="animate"
                   exit="initial"
-                  className={darkMode ? "content-item dark" : "content-item"}
+                  className={darkMode ? 'content-item dark' : 'content-item'}
                   key={id}
                   id={id}
                 >
@@ -161,12 +153,12 @@ const ExpItems = ({ items, darkMode }) => {
                   {desc4 && <p>{desc4}</p>}
                 </motion.div>
               )
-            );
+            )
           })}
         </div>
       </Wrapper>
     </motion.div>
-  );
-};
+  )
+}
 
-export default ExpItems;
+export default ExpItems
